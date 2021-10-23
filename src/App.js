@@ -1,32 +1,33 @@
+import {useState} from "react"
 function App() {
     let words = [
         {
-            english: "yo-yo",
+            english: "(yo)-yo",
             englishSyllable: "yo",
             korean: "요",
             koreanExample: "용",
         },
         {
-            english: "father",
-            syllable: "ah",
+            english: "f(a)ther",
+            englishSyllable: "ah",
             korean: "아",
             koreanExample: "바다",
         },
         {
-            english: "no",
-            syllable: "oh",
+            english: "n(o)",
+            englishSyllable: "oh",
             korean: "오",
             koreanExample: "오늘",
         },
         {
-            english: "you",
-            syllable: "yoo",
+            english: "y(ou)",
+            englishSyllable: "yoo",
             korean: "유",
             koreanExample: "유리",
         },
         {
-            english: "yacht",
-            syllable: "yah",
+            english: "y(a)cht",
+            englishSyllable: "yah",
             korean: "야",
             koreanExample: "야구",
         }
@@ -38,11 +39,7 @@ function App() {
     //print out english syllable and stylize (color)
     //print korean vowel and stylize (color)
     //print korean example word
-
-    function doThing() {
-        return "Hello World"
-        //return words[2][english]
-    } 
+    
     // {() => doThing()} arrow function executes immediately (as soon as rendering)
     //words[0]['english']
     //delay appearance using CSS
@@ -52,16 +49,49 @@ function App() {
     //buttons- react on click
 
 
-    //tailwind classes (tailend documentation) 
-    //animation- tailend transitions
+    //tailwind classes (tailend documentation)
+    //animation- tailwind transitions
     //translate to move
     //opacity to fade in + colors
     //transition duration- defines how long transition takes and spacing out transition
 
+
+    const [index, setIndex] = useState(0); // state variable, intialize index to be 0
+    
+    //* set index to +1*/ 
+    const incrementIndex = () => {
+        setIndex((index + 1)% words.length)
+    }
+
     return (
-        <div className="w-full h-screen bg-gray-100 flex flex-col items-center justify-center"> 
-            <h1 className="text-4xl text-gray-700">{words[0]['english'], words[0]['englishSyllable'], words[0]['korean']}</h1>
+        <>
+        <div className="w-full h-screen bg-gray-900 flex flex-col items-center justify-center"> 
+        {/* {
+            words.map((word) => {
+                return <p>{word.english}</p>
+            })
+        } */}
+
+        <p className="text-red-300 text-5xl">{words[index]['english']}</p>
+        <p>' '</p>
+        <p>' '</p>
+        <p>' '</p>
+        <p className="text-blue-500 text-5xl">{words[index]['englishSyllable']}</p>
+        <p>' '</p>
+        <p>' '</p>
+        <p>' '</p>
+        <p className="text-green-700 text-5xl">{words[index]['korean']}</p>
+        <p>' '</p>
+        <p>' '</p>
+        <p>' '</p>
+        <p className="text-indigo-300 text-5xl">{words[index]['koreanExample']}</p>
+        <p>' '</p>
+        <p>' '</p>
+        <p>' '</p>
+        <p>' '</p>
+        <button className="bg-purple-500 hover:bg-purple-300 text-white font-bold py-2 px-4 rounded" onClick={incrementIndex}>nextWord</button>
         </div>
+        </>
     );
 }
 
