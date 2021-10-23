@@ -65,7 +65,7 @@ function App() {
 
     return (
         <>
-        <div className="w-full h-screen bg-gray-900 flex flex-col items-center justify-center"> 
+        <div className="w-full h-screen bg-gray-900 flex flex-col items-center justify-evenly"> 
         {/* {
             words.map((word) => {
                 return <p>{word.english}</p>
@@ -73,22 +73,16 @@ function App() {
         } */}
 
         <p className="text-red-300 text-5xl">{words[index]['english']}</p>
-        <p>' '</p>
-        <p>' '</p>
-        <p>' '</p>
         <p className="text-blue-500 text-5xl">{words[index]['englishSyllable']}</p>
-        <p>' '</p>
-        <p>' '</p>
-        <p>' '</p>
         <p className="text-green-700 text-5xl">{words[index]['korean']}</p>
+        {/* <p>' '</p>
         <p>' '</p>
-        <p>' '</p>
-        <p>' '</p>
+        <p>' '</p> */}
         <p className="text-indigo-300 text-5xl">{words[index]['koreanExample']}</p>
+        {/* <p>' '</p>
         <p>' '</p>
         <p>' '</p>
-        <p>' '</p>
-        <p>' '</p>
+        <p>' '</p> */}
         <button className="bg-purple-500 hover:bg-purple-300 text-white font-bold py-2 px-4 rounded" onClick={incrementIndex}>nextWord</button>
         </div>
         </>
