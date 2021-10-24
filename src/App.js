@@ -1,38 +1,7 @@
 import {useState} from "react"
+import SwitchButton from "./components/SwitchButton"
+import {words} from "./data/words"
 function App() {
-    let words = [
-        {
-            english: "(yo)-yo",
-            englishSyllable: "yo",
-            korean: "요",
-            koreanExample: "용",
-        },
-        {
-            english: "f(a)ther",
-            englishSyllable: "ah",
-            korean: "아",
-            koreanExample: "바다",
-        },
-        {
-            english: "n(o)",
-            englishSyllable: "oh",
-            korean: "오",
-            koreanExample: "오늘",
-        },
-        {
-            english: "y(ou)",
-            englishSyllable: "yoo",
-            korean: "유",
-            koreanExample: "유리",
-        },
-        {
-            english: "y(a)cht",
-            englishSyllable: "yah",
-            korean: "야",
-            koreanExample: "야구",
-        }
-    ];
-
 
     //create a function to:
     //print out english word
@@ -59,41 +28,41 @@ function App() {
     const [index, setIndex] = useState(0); // state variable, intialize index to be 0
     
     
-    const SwitchButton1 = ({initialText, afterText}) => {
-        const [buttonText, setButtonText] = useState(initialText);
+    // const SwitchButton1 = ({initialText, afterText}) => {
+    //     const [buttonText, setButtonText] = useState(initialText);
+    //     return (
+    //         <button className="text-pink-200 text-3xl" onClick={() => setButtonText(afterText)}>{buttonText}</button>
+    //     );
+    // }
 
-        return (
-            <button className="text-pink-200 text-3xl" onClick={() => setButtonText(afterText)}>{buttonText}</button>
-        );
-    }
+    // const SwitchButton2 = ({initialText, afterText}) => {
+    //     const [buttonText, setButtonText] = useState(initialText);
 
-    const SwitchButton2 = ({initialText, afterText}) => {
-        const [buttonText, setButtonText] = useState(initialText);
+    //     return (
+    //         <button className="text-purple-200 text-3xl" onClick={() => setButtonText(afterText)}>{buttonText}</button>
+    //     );
+    // }
 
-        return (
-            <button className="text-purple-200 text-3xl" onClick={() => setButtonText(afterText)}>{buttonText}</button>
-        );
-    }
+    // const SwitchButton3 = ({initialText, afterText}) => {
+    //     const [buttonText, setButtonText] = useState(initialText);
 
-    const SwitchButton3 = ({initialText, afterText}) => {
-        const [buttonText, setButtonText] = useState(initialText);
+    //     return (
+    //         <button className="text-blue-300 text-3xl" onClick={() => setButtonText(afterText)}>{buttonText}</button>
+    //     );
+    // }
 
-        return (
-            <button className="text-blue-300 text-3xl" onClick={() => setButtonText(afterText)}>{buttonText}</button>
-        );
-    }
+    // const SwitchButton4 = ({initialText, afterText}) => {
+    //     const [buttonText, setButtonText] = useState(initialText);
 
-    const SwitchButton4 = ({initialText, afterText}) => {
-        const [buttonText, setButtonText] = useState(initialText);
-
-        return (
-            <button className="text-green-200 text-3xl" onClick={() => setButtonText(afterText)}>{buttonText}</button>
-        );
-    }
+    //     return (
+    //         <button className="text-green-200 text-3xl" onClick={() => setButtonText(afterText)}>{buttonText}</button>
+    //     );
+    // }
 
     //* set index to +1*/ 
     const incrementIndex = () => {
         setIndex((index + 1)% words.length)
+        console.log(words[index])
     }
     // function to set the text
     // const [buttonText2, setButtonText2] = useState("Show english sound")
@@ -114,12 +83,12 @@ function App() {
         } */}
         {/* <p className="text-red-300 text-5xl">{words[index]['english']}</p>
         <p className="text-blue-500 text-5xl">{words[index]['englishSyllable']}</p>
-        <p className="text-green-700 text-5xl">{words[index]['korean']}</p>
+        <p className="text-green-700 text-5xl">{words[index]['korean']}</p> 
         <p className="text-indigo-300 text-5xl">{words[index]['koreanExample']}</p> */}
-        <SwitchButton1 initialText="Show English word" afterText={words[index]['english']}></SwitchButton1>
-        <SwitchButton2 initialText="Show English sound from word" afterText={words[index]['englishSyllable']}></SwitchButton2>
-        <SwitchButton3 initialText="Show Korean consonant" afterText={words[index]['korean']}></SwitchButton3>
-        <SwitchButton4 initialText="Show Korean Example" afterText={words[index]['koreanExample']}></SwitchButton4>
+        <SwitchButton initialText="Show English word" afterText={words[index]['english']} color="text-pink-200" >Show English word</SwitchButton>
+        <SwitchButton initialText="Show English sound from word" afterText={words[index]['englishSyllable']} color="text-purple-200">Show English sound from word</SwitchButton>
+        <SwitchButton initialText="Show Korean consonant" afterText={words[index]['korean']} color="text-blue-300">Show Korean consonant</SwitchButton>
+        <SwitchButton initialText="Show Korean Example" afterText={words[index]['koreanExample']} color="text-green-200">Show Korean example</SwitchButton>
         <button className="bg-indigo-500 hover:bg-indigo-300 text-white font-bold py-2 px-4 rounded text3xl animate-bounce" onClick={incrementIndex}>Next Word</button>
         </div>
         </>
